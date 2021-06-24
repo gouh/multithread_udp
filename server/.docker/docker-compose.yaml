@@ -1,0 +1,17 @@
+version: '3'
+
+networks:
+  default:
+    external:
+      name: mariana
+
+services:
+  python-39-server:
+    container_name: python-39-ss
+    image: python:3.9
+    working_dir: /usr/src/app
+    volumes:
+      - ./..:/usr/src/app
+    ports:
+      - "80:80"
+    command: ["python3", "server.py"]

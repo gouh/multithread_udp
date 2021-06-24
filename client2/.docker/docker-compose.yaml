@@ -1,0 +1,15 @@
+version: '3'
+
+networks:
+  default:
+    external:
+      name: mariana
+
+services:
+  python-39-client2:
+    container_name: python-39-sc2
+    image: python:3.9
+    working_dir: /usr/src/app
+    volumes:
+      - ./..:/usr/src/app
+    command: ["python3", "client.py", "python-39-ss", "99", "Hola desde el cliente 2"]
